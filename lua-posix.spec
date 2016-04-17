@@ -1,12 +1,10 @@
 %{!?luaver: %global luaver %(lua -e "print(string.sub(_VERSION, 5))")}
 %global lualibdir %{_libdir}/lua/%{luaver}
 %global luapkgdir %{_datadir}/lua/%{luaver}
-%global commit 58016bbba40b063e8a98a7e9f14acfcd46f103d4
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:           lua-posix
-Version:        33.3.1
-Release:        2%{?dist}
+Version:        33.4.0
+Release:        1%{?dist}
 Summary:        A POSIX library for Lua
 Group:          Development/Libraries
 License:        Public Domain
@@ -52,11 +50,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog COPYING NEWS README
 %{_defaultdocdir}/luaposix/
 %{lualibdir}/*
-%{luapkgdir}/*.lua
 %{luapkgdir}/posix/
 
 
 %changelog
+* Sun Apr 17 2016 Jajauma's Packages <jajauma@yandex.ru> - 33.4.0-1
+- Update to the latest upstream release
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 33.3.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
