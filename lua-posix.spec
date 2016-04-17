@@ -19,6 +19,9 @@ Requires:       lua(abi) = %{luaver}
 %else
 Requires:       lua >= %{luaver}
 %endif
+%if "%{luaver}" == "5.1"
+Requires:       lua-bit32
+%endif
 
 %description
 This is a POSIX library for Lua which provides access to many POSIX features
@@ -56,6 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Sun Apr 17 2016 Jajauma's Packages <jajauma@yandex.ru> - 33.4.0-1
 - Update to the latest upstream release
+- Require lua-bit32 when building against Lua 5.1
 
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 33.3.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
